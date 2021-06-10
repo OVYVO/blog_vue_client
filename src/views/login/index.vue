@@ -152,7 +152,7 @@ export default({
         
       }
       .login-form{
-        /deep/.el-form-item{
+        &:deep(.el-form-item){
           .el-input__icon{
             font-size: 18px;
             font-weight: 700;
@@ -160,7 +160,7 @@ export default({
             top: 4px;
           }
         }
-        /deep/.el-form-item:last-child{
+        &:deep(.el-form-item:last-child){
           .el-form-item__content{
             display: flex;
             justify-content: center;

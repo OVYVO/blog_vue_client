@@ -1,23 +1,31 @@
 <template>
-  <router-view>
-
-  </router-view>
+  <div id="app">
+    <router-view v-if="isLoginPage"></router-view>
+    <page-layout v-else>
+      <router-view></router-view>
+    </page-layout>
+  </div>
 </template>
 
 <script>
+import PageLayout from '@/components/PageLayout.vue'
 import { ref, watch } from 'vue'
 import { useRoute } from 'vue-router'
 export default{
+  components:{
+    PageLayout
+  },
   setup(){
     const route = useRoute()
     let isLoginPage = ref(null)
     watch(
       () => route.path,
       () => {
-        console.log(route.path)
         if(route.path=='/login'){
+          console.log('登录页面')
           isLoginPage = true
         }else{
+          console.log('非登录页面')
           isLoginPage = false
         }
       }
@@ -30,6 +38,10 @@ export default{
 </script>
 
 <style lang='less'>
+#app{
+  height: 100vh;
+  width: 100vw;
+}
 .slide-fade-enter-active {
   transition: all 0.5s;
 }

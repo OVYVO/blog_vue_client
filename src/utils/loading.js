@@ -36,7 +36,7 @@ export function showLoading({ delay = 3000, text = '' } = {}) {
   container.style.top = '0'
   container.style.zIndex = '9999999'
   container.style.display = 'flex'
-  timer = setTimeout(hideLoading, delay)
+  //timer = setTimeout(hideLoading, delay)
 }
 export function hideLoading() {
   if (typeof document === 'undefined') return

@@ -6,7 +6,9 @@ import { ElMessage } from 'element-plus'
 const noop = () => {}
 
 export function createApi({
-  createOptions = {},
+  createOptions = {
+    timeout: 1000
+  },
   setHeaders = noop
 } = {}) {
   const instance = axios.create(createOptions)

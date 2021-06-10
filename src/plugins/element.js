@@ -6,6 +6,10 @@ import {
   ElFormItem,
   ElInput,
   ElIcon,
+  ElContainer,
+  ElAside,
+  ElHeader,
+  ElMain,
 } from 'element-plus';
 const components = [
   ElButton,
@@ -13,6 +17,10 @@ const components = [
   ElFormItem,
   ElInput,
   ElIcon,
+  ElContainer,
+  ElAside,
+  ElHeader,
+  ElMain,
 ]
 const plugins = []
 export default (app) => {

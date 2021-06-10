@@ -5,6 +5,8 @@ export function login(data) {
     url: '/api/login',
     method: 'POST',
     data
+  }, {
+    shouldLoading: false
   })
 }
 export function register(data) {

@@ -1,8 +1,16 @@
+import localStorage from 'yan-utils/lib/localStorage'
+const {
+  user_id,
+  user_token,
+  user_name,
+  create_date
+} = localStorage.get('user_info') || {}
+
 const state = () => ({
-  user_name: '',
-  user_id: '',
-  user_token: '',
-  create_date: ''
+  user_name,
+  user_id,
+  user_token,
+  create_date
 })
 
 const mutations = {
@@ -10,6 +18,7 @@ const mutations = {
     Object.entries(value).forEach(([key, val]) => {
       state[key] = val
     })
+    localStorage.set('user_info', value)
   }
 }
 
