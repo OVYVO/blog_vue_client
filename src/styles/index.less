@@ -1,0 +1,16 @@
+@import './base.less';
+@import './animation.less';
+
+
+//重写fadeInDown动画
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translate3d(0, -4%, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
