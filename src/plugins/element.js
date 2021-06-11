@@ -10,6 +10,9 @@ import {
   ElAside,
   ElHeader,
   ElMain,
+  ElMenu,
+  ElMenuItem,
+  ElMenuItemGroup,
 } from 'element-plus';
 const components = [
   ElButton,
@@ -21,6 +24,9 @@ const components = [
   ElAside,
   ElHeader,
   ElMain,
+  ElMenu,
+  ElMenuItem,
+  ElMenuItemGroup,
 ]
 const plugins = []
 export default (app) => {

@@ -6,7 +6,9 @@
           <i></i>
           <span>火箭管理后台</span>
         </el-header>
-        <el-main>路由</el-main>
+        <el-main style="padding: 20px 0;">
+          <side-menu></side-menu>
+        </el-main>
       </el-container>
     </el-aside>
     <el-container>
@@ -19,8 +21,9 @@
 </template>
 
 <script>
+import SideMenu from './SideMenu.vue'
 export default {
-  
+  components:{SideMenu}
 }
 </script>
 
