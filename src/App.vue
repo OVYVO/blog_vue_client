@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <router-view v-if="isLoginPage"></router-view>
+    <router-view v-if="showLayout"></router-view>
     <page-layout v-else>
       <router-view></router-view>
     </page-layout>
@@ -9,7 +9,8 @@
 
 <script>
 import PageLayout from '@/components/PageLayout.vue'
-import { ref, watch } from 'vue'
+import { ref, watch, onUnmounted } from 'vue'
+import { useStore } from 'vuex'
 import { useRoute } from 'vue-router'
 export default{
   components:{
@@ -17,21 +18,25 @@ export default{
   },
   setup(){
     const route = useRoute()
-    let isLoginPage = ref(null)
+    const store = useStore()
+    let showLayout = ref(null)
+    onUnmounted(()=>{
+      store.commit('user/CLEAR_USER_INFO')
+    })
     watch(
       () => route.path,
       () => {
-        if(route.path=='/login'){
-          console.log('登录页面')
-          isLoginPage = true
+        if(route.path == '/'){
+          showLayout.value = true
         }else{
-          console.log('非登录页面')
-          isLoginPage = false
+          showLayout.value = false
         }
+      },{
+        immediate: true
       }
     )
     return{
-      isLoginPage
+      showLayout
     }
   }
 }
@@ -41,9 +46,10 @@ export default{
 #app{
   height: 100vh;
   width: 100vw;
+  overflow: hidden;
 }
 .slide-fade-enter-active {
-  transition: all 0.5s;
+  transition: all 0.5s 1s;
 }
 .slide-fade-leave-active {
   transition: all 0.5s;

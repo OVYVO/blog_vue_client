@@ -19,6 +19,12 @@ const mutations = {
       state[key] = val
     })
     localStorage.set('user_info', value)
+  },
+  CLEAR_USER_INFO: (state) => {
+    Object.keys(state).forEach(key => {
+      state[key] = ''
+    })
+    localStorage.clear('user_info')
   }
 }
 

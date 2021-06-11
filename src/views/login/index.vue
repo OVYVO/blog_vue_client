@@ -64,7 +64,7 @@ export default({
       }
       const {user_info} = await Api.login(payload)
       store.commit('user/SET_USER_INFO', user_info)
-      router.push({path: '/'})
+      router.push({path: '/home'})
       ElMessage.success('登陆成功')
     }
     const onReset = ()=>{
