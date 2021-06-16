@@ -1,6 +1,6 @@
 <template>
   <div class="home-container">
-    <el-button>测试一下按需引入</el-button>
+    <router-view></router-view>
   </div>
 </template>
 

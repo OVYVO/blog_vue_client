@@ -5,7 +5,7 @@
         <div class="header">
           <span class="title">登录</span>
         </div>
-        <div class="desc">火箭管理后台</div>
+        <div class="desc">神箭管理后台</div>
       </div>
       <div class="login">
         <el-form 
