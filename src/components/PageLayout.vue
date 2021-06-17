@@ -1,12 +1,12 @@
 <template>
   <el-container class="main-container">
     <el-aside class="aside">
-      <el-container>
+      <el-container style="height: 100%">
         <el-header class="logo">
           <i></i>
           <span>火箭管理后台</span>
         </el-header>
-        <el-main style="padding: 20px 0;">
+        <el-main style="padding: 0;">
           <side-menu></side-menu>
         </el-main>
       </el-container>
@@ -21,7 +21,7 @@
 </template>
 
 <script>
-import SideMenu from './SideMenu.js'
+import SideMenu from './SideMenu.vue'
 export default {
   components:{SideMenu}
 }

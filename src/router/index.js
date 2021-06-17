@@ -1,10 +1,14 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
 import CommonRouters from './common'
+import ArticleRouters from './article'
 import store from '@/store/index.js';
 
 const router = createRouter({
   history: createWebHashHistory(),
-  routes: [...CommonRouters]
+  routes: [
+    ...CommonRouters,
+    ...ArticleRouters
+  ]
 });
 
 router.beforeEach((to, from, next) => {

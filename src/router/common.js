@@ -5,26 +5,17 @@ export default [
   component: () => import('@/views/login/index.vue'),
   meta: {
     icon: 'el-icon-eleme',
-    isShow: true
+    isShow: false,
+    title: '登录页'
   }
 },
 {
   path: '/home',
   name: 'home',
-  redirect: { name: 'dashboard' },
   component: () => import('@/views/home/index.vue'),
   meta: {
     icon: 'el-icon-eleme',
-    isShow: true
+    isShow: true,
+    title: '首页'
   },
-  children: [
-  {
-    path: '/home/dashboard',
-    name: 'dashboard',
-    component: () => import('@/views/home/dashboard.vue'),
-    meta: {
-      icon: 'el-icon-eleme',
-      isShow: true
-    },
-  }]
 }]

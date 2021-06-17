@@ -1,6 +1,6 @@
 <template>
   <div class="home-container">
-    <router-view></router-view>
+    欢迎访问
   </div>
 </template>
 
