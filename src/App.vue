@@ -59,4 +59,10 @@ export default{
   transform: translateX(20px);
   opacity: 0;
 }
+.el-submenu.is-active > .el-submenu__title{
+  i{
+    color: #409EFF !important;
+  }
+  color: #409EFF !important;
+}
 </style>

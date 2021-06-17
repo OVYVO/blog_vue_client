@@ -38,8 +38,3 @@ export default {
   height: 100%;
 }
 </style>
-<style lang="less">
-  .el-submenu .is-active{
-    color: #409EFF !important;
-  }
-</style>
