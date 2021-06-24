@@ -1,5 +1,4 @@
 import localStorage from 'yan-utils/lib/localStorage'
-console.log(localStorage)
 const {
   user_id,
   user_token,
