@@ -1,4 +1,5 @@
 import localStorage from 'yan-utils/lib/localStorage'
+console.log(localStorage)
 const {
   user_id,
   user_token,
@@ -24,7 +25,8 @@ const mutations = {
     Object.keys(state).forEach(key => {
       state[key] = ''
     })
-    localStorage.clear('user_info')
+    window.localStorage.removeItem('user_info')
+    window.location.reload()
   }
 }
 

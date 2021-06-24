@@ -6,7 +6,9 @@
         collapse-transition
         mode="vertical"
         :default-active="$route.path"
+        :uniqueOpened="true"
         style="border: none"
+        @open="submenuopen"
       >
         <sidemenu-item 
           v-for="menu in menuList" 
@@ -21,13 +23,19 @@
 <script>
 import SidemenuItem from './SidemenuItem.vue'
 import router from '@/router/index.js'
+import { useRouter } from 'vue-router'
 export default {
   components:{
     SidemenuItem
   },
-  data(){
-    return{
+  setup(){
+    const router = useRouter()
+    const submenuopen = (index) => {
+      router.push({path: index})
+    }
+    return {
       menuList: router.options.routes,
+      submenuopen
     }
   }
 }

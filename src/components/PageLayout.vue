@@ -12,7 +12,9 @@
       </el-container>
     </el-aside>
     <el-container>
-      <el-header class="header"></el-header>
+      <el-header class="header">
+        <common-header></common-header>
+      </el-header>
       <el-main>
         <slot></slot>
       </el-main>
@@ -22,8 +24,11 @@
 
 <script>
 import SideMenu from './SideMenu.vue'
+import CommonHeader from './CommonHeader.vue'
 export default {
-  components:{SideMenu}
+  components:{
+    SideMenu,CommonHeader
+  }
 }
 </script>
 

@@ -14,6 +14,12 @@ import {
   ElSubmenu,
   ElMenuItem,
   ElScrollbar,
+  ElBreadcrumb,
+  ElBreadcrumbItem,
+  ElAvatar,
+  ElDropdown,
+  ElDropdownItem,
+  ElDropdownMenu,
 } from 'element-plus';
 const components = [
   ElButton,
@@ -29,6 +35,12 @@ const components = [
   ElSubmenu,
   ElMenuItem,
   ElScrollbar,
+  ElBreadcrumb,
+  ElBreadcrumbItem,
+  ElAvatar,
+  ElDropdown,
+  ElDropdownItem,
+  ElDropdownMenu,
 ]
 const plugins = []
 export default (app) => {
