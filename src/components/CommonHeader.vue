@@ -39,7 +39,7 @@ export default {
   setup(){
     const store = useStore()
     const route = useRoute()
-    const routeArray = ref()
+    const routeArray = ref([])
 
     const handleCommand = (val)=>{
       switch(val){
@@ -59,7 +59,7 @@ export default {
     return{
       routeArray,
       handleCommand,
-      userName: computed(() => store.state.user.user_name),
+      userName: computed(() => store.state.user.user_name)
     }
   }
 }

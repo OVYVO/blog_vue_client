@@ -20,6 +20,8 @@ import {
   ElDropdown,
   ElDropdownItem,
   ElDropdownMenu,
+  ElTable,
+  ElTableColumn,
 } from 'element-plus';
 const components = [
   ElButton,
@@ -41,6 +43,8 @@ const components = [
   ElDropdown,
   ElDropdownItem,
   ElDropdownMenu,
+  ElTable,
+  ElTableColumn,
 ]
 const plugins = []
 export default (app) => {
