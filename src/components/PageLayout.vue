@@ -38,7 +38,6 @@ export default {
   overflow: hidden;
 }
 .aside{
-  width: 400px;
   box-shadow: @box-shadow-base;
   .logo{
     background: @primary-color;
