@@ -1,5 +1,5 @@
-import installAntd from './element'
+import installElement from './element'
 
 export default {
-  installAntd
+  installElement
 }

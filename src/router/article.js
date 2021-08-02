@@ -6,7 +6,7 @@ export default [
   redirect: { name: 'articleList' },
   meta: {
     icon: 'el-icon-s-management',
-    isShow: true,
+    inLayout: true,
     title: '文章管理'
   },
   children: [{
@@ -14,7 +14,7 @@ export default [
     name: 'articleList',
     component: () => import('@/views/article/list.vue'),
     meta: {
-      isShow: true,
+      inLayout: true,
       title: '文章列表'
     }
   }]

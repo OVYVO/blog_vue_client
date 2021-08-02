@@ -1,12 +1,12 @@
 <template>
-  <div class="menu-item" v-if="item.meta.isShow">
+  <div class="menu-item" v-if="item.meta.inLayout">
     <template v-if="hasChildren(item) && isAllHide(item.children)">
       <el-submenu :index="item.path">
         <template #title >
           <i :class="item.meta.icon"></i>{{item.meta.title}}
         </template>
         <template v-for="child in item.children">
-          <template v-if="child.meta.isShow">
+          <template v-if="child.meta.inLayout">
             <sidebar-item
               v-if="hasChildren(child) && isAllHide(item.children)"
               :item="child"
@@ -26,7 +26,7 @@
     <template v-else>
       <el-menu-item 
         :index="item.path" 
-        v-if="item.meta.isShow"
+        v-if="item.meta.inLayout"
       >
         <i :class="item.meta.icon"></i>{{item.meta.title}}
       </el-menu-item>
@@ -51,7 +51,7 @@ export default {
     },
     isAllHide(val){
       return (val)=>{
-        return val.every(item => item.meta.isShow)
+        return val.every(item => item.meta.inLayout)
       }
     }
   }

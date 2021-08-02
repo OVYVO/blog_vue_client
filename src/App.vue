@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import PageLayout from '@/components/PageLayout.vue'
+import PageLayout from '@/layout/index.vue'
 import { ref, watch, onUnmounted } from 'vue'
 import { useStore } from 'vuex'
 import { useRoute } from 'vue-router'
