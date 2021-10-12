@@ -1,6 +1,7 @@
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import styleImport from 'vite-plugin-style-import'
+import { proxyUrl } from './src/config'
 const path = require('path')
 
 export default defineConfig({
@@ -23,7 +24,7 @@ export default defineConfig({
   server: {
     proxy: {
       '/api': {
-        target: 'http://localhost:8888',
+        target: proxyUrl,
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/api/, '')
       }

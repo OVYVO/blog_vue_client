@@ -4,6 +4,12 @@ import {
   ElButton,
   ElForm,
   ElFormItem,
+  ElSelect,
+  ElOption,
+  ElUpload,
+  ElSwitch,
+  ElRadio,
+  ElRadioGroup,
   ElInput,
   ElIcon,
   ElContainer,
@@ -22,11 +28,21 @@ import {
   ElDropdownMenu,
   ElTable,
   ElTableColumn,
+  ElDivider,
+  ElDialog,
+  ElImage,
+  ElImageViewer
 } from 'element-plus';
 const components = [
   ElButton,
   ElForm,
   ElFormItem,
+  ElSelect,
+  ElOption,
+  ElUpload,
+  ElSwitch,
+  ElRadio,
+  ElRadioGroup,
   ElInput,
   ElIcon,
   ElContainer,
@@ -45,6 +61,10 @@ const components = [
   ElDropdownMenu,
   ElTable,
   ElTableColumn,
+  ElDivider,
+  ElDialog,
+  ElImage,
+  ElImageViewer
 ]
 const plugins = []
 export default (app) => {
