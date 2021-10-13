@@ -27,13 +27,13 @@
       editorClass="md-editor"
     />
     <div class="action-bar">
-      <el-button type="primary">保存</el-button>
-      <el-button type="danger">清空</el-button>
+      <el-button type="primary" @click="saveArticle">保存</el-button>
+      <el-button type="danger" @click="resetArticle">清空</el-button>
     </div>
     <el-dialog
       title="确认提交"
       v-model="dialogVisible"
-      width="50%"
+      width="30%"
       :lock-scroll="true"
       :close-on-click-modal="false"
     >
@@ -81,7 +81,6 @@
           <img-uploader v-model="formData.poster" :limit="1"></img-uploader >
         </el-form-item >
       </el-form>
-      
       <!--弹框页脚-->
       <template #footer>
         <span class="dialog-footer">
@@ -105,6 +104,7 @@ export default {
     MdEditor,ImgUploader
   },
   setup() {
+    let dialogVisible = ref(false)
     let submitForm = ref(null)
     let toolBars = reactive(mdEditorTool)
     let tagOptions = reactive(tagList)
@@ -124,18 +124,18 @@ export default {
     })
 
     const onSubmit = async() => {
-      const  { user_name, user_psd } = toRefs(formData)
-      const payload = {
-        user_name: user_name.value,
-        user_psd: encrypt(user_psd.value)
-      }
-      const {user_info} = await Api.login(payload)
-      store.commit('user/SET_USER_INFO', user_info)
-      router.push({path: '/home'})
-      ElMessage.success('登陆成功')
+      
     }
     const onReset = ()=>{
       submitForm.value.resetFields();
+    }
+    // 保存
+    const saveArticle = () =>{
+      dialogVisible.value = true
+    }
+    // 清空
+    const resetArticle = () =>{
+
     }
   
     return {
@@ -146,10 +146,12 @@ export default {
       onReset,
       toolBars,
       tagOptions,
+      dialogVisible,
+      saveArticle,
+      resetArticle,
       text: ref(''),
       themeKey: ref('Light'),
-      prethemeKey: ref('default'),
-      dialogVisible: ref(true)
+      prethemeKey: ref('default')
     }
   }
 }
