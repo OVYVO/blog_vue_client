@@ -78,12 +78,7 @@
           </el-select>
         </el-form-item >
         <el-form-item label="上传封面：" prop="">
-          <el-upload
-            action="https://jsonplaceholder.typicode.com/posts/"
-            list-type="picture-card"
-          >
-            <i class="el-icon-plus"></i>
-          </el-upload>
+          <img-uploader v-model="formData.poster" :limit="1"></img-uploader >
         </el-form-item >
       </el-form>
       
@@ -99,13 +94,15 @@
 </template>
 
 <script>
-import { ref, reactive } from 'vue';
-import MdEditor from 'md-editor-v3';
-import 'md-editor-v3/lib/style.css';
+import { ref, reactive } from 'vue'
+import 'md-editor-v3/lib/style.css'
 import {mdEditorTool,tagList} from '@/config'
+import MdEditor from 'md-editor-v3'
+import ImgUploader from '@/components/upload.vue'
+
 export default {
   components:{
-    MdEditor
+    MdEditor,ImgUploader
   },
   setup() {
     let submitForm = ref(null)
@@ -114,7 +111,8 @@ export default {
     let formData = reactive({
       title: '',
       type: 1,
-      tag: []
+      tag: [],
+      poster:[]
     })
     let formRules = reactive({
       title:[

@@ -1,14 +1,21 @@
 <template>
   <div class="test-container">
-    <up-load></up-load >
+    <up-load v-model:modelValue='imgUrlList'></up-load>
   </div>
 </template>
 
 <script>
+import { reactive } from 'vue'
 import UpLoad from '@/components/upload.vue'
 export default {
   components: {
     UpLoad
+  },
+  setup(){
+    let imgUrlList = reactive([])
+    return {
+      imgUrlList
+    }
   }
 }
 </script>
