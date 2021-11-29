@@ -19,7 +19,7 @@
       </el-form-item>
     </el-form>
     <md-editor 
-      v-model="text" 
+      v-model="mdText" 
       :theme="themeKey"
       :previewTheme="prethemeKey"
       :toolbars="toolBars" 
@@ -85,7 +85,7 @@
       <template #footer>
         <span class="dialog-footer">
           <el-button @click="dialogVisible = false">取消</el-button>
-          <el-button type="primary" @click="dialogVisible = false">确认</el-button>
+          <el-button type="primary" @click="onSubmit">确认</el-button>
         </span>
       </template>
     </el-dialog>
@@ -93,11 +93,13 @@
 </template>
 
 <script>
-import { ref, reactive } from 'vue'
+import { ref, reactive, toRaw } from 'vue'
 import 'md-editor-v3/lib/style.css'
 import {mdEditorTool,tagList} from '@/config'
 import MdEditor from 'md-editor-v3'
 import ImgUploader from '@/components/upload.vue'
+import { ElMessage } from 'element-plus'
+import * as Api from '@/api/article'
 
 export default {
   components:{
@@ -106,6 +108,7 @@ export default {
   setup() {
     let dialogVisible = ref(false)
     let submitForm = ref(null)
+    let mdText = ref('')
     let toolBars = reactive(mdEditorTool)
     let tagOptions = reactive(tagList)
     let formData = reactive({
@@ -116,26 +119,37 @@ export default {
     })
     let formRules = reactive({
       title:[
-        {required: true,message: '请输入文章标题',trigger: 'blur'},
+        {required: true,message: '请输入文章标题',trigger: 'change'},
         {min: 1,max: 20,message: '标题内容限制20字符内',trigger: 'change'}
       ],
-      type:{required: true,message: '请选择文章类型',trigger: 'blur'},
-      tag:{required: true,message: '请选择文章标签',trigger: 'blur'}
+      type:{required: true,message: '请选择文章类型',trigger: 'change'},
+      tag:{required: true,message: '请选择文章标签',trigger: 'change'}
     })
 
-    const onSubmit = async() => {
-      
+    const onSubmit = () => {
+      submitForm.value.validate(async(valid) => {
+        if(!valid) return false
+        let payload = {
+          ...formData,
+          mdText: mdText.value
+        }
+        payload.tag = payload.tag.join(',')
+        payload.poster = toRaw(payload.poster).map(item=>item.url).join(',')
+        await Api.articleAdd(payload)
+        ElMessage.success('添加成功')
+      })
     }
     const onReset = ()=>{
       submitForm.value.resetFields();
     }
     // 保存
     const saveArticle = () =>{
+      console.log(mdText.value)
       dialogVisible.value = true
     }
     // 清空
     const resetArticle = () =>{
-
+      mdText.value = ''
     }
   
     return {
@@ -149,7 +163,7 @@ export default {
       dialogVisible,
       saveArticle,
       resetArticle,
-      text: ref(''),
+      mdText,
       themeKey: ref('Light'),
       prethemeKey: ref('default')
     }
